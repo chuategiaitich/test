@@ -15,14 +15,14 @@ class E6B2_CWZ6C_encoder
 {
   public:
     static int rawCount;
-    static bool direction;
+    //static bool direction;
     static void read_rawCount();
     static void init();
     float voltage_transfer();
 };
 E6B2_CWZ6C_encoder S;
 int E6B2_CWZ6C_encoder::rawCount = 0;
-bool E6B2_CWZ6C_encoder::direction = true;
+//bool E6B2_CWZ6C_encoder::direction = true;
 void E6B2_CWZ6C_encoder::read_rawCount()
 {
   if (digitalRead (3)==LOW) 
@@ -156,8 +156,8 @@ void loop() {
   // Serial.print(">Angle: ");Serial.println(motor.shaft_angle);
   // Serial.print(">Velocity: ");Serial.println(motor.shaft_velocity);
   // Serial.print(">Voltage: ");Serial.println(motor.voltage.q);
-  //Serial.print(">Encoder A: ");Serial.println();
-  //Serial.print(">Encoder B: ");Serial.println();
+  Serial.print(">Encoder A: ");Serial.println(sensor.getRawCount());
+  Serial.print(">Encoder B: ");Serial.println(S.rawCount);
   Serial.print(">input_voltage: ");Serial.println(S.voltage_transfer());
   Serial.print(">motor_max_limit_voltage: ");Serial.println(motor.voltage.q);
 //////////////////////////////// Kiểm tra dòng ////////////////////////////////
